@@ -1,0 +1,52 @@
+
+
+#navegador{
+	margin: auto;
+	width: 50%;
+	max-width: 400px;
+	background: black;
+	padding: 10px;
+	opacity: 0.7;
+}
+#navegador li a {
+	padding: 2px 7px 2px 7px;
+	color: #666;
+	background-color: #eeeeee;
+	border: 5px solid #ccc;
+	text-decoration: none;
+}
+
+#navegador li a:hover{
+	background-color: #333333;
+	color: #ffffff;
+}
+
+h1{
+	font-family: Helvetica, Geneva, Arial;
+	text-align: center;
+	margin-bottom: 30px;
+	color: #FBFCFC;
+	size: 6;
+
+}
+
+input{
+	display: block;
+	padding: 10px;
+	width: 15%;
+	margin: 20px 0;
+	font-size: 20px;
+
+}
+
+input[type="submit"]{
+	background: linear-gradient(#08DFF7, #0844F7);
+	border: 0;
+	color: white;
+	opacity: 0.8;
+	cursor: pointer;
+	border-radius: 20px;
+	margin-bottom: 0;
+}
+
+
