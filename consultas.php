@@ -36,8 +36,48 @@
     <div class="jumbotron">
       <div class="container">
         <center>
-	        <h1>Grupo 3 </h1><br>
-	        <h2>Proyecto 2 Web PHP y MariaDB</h2>                
+	        <h1>Consulta General </h1><br>
+	        <div class="panel-body">
+              <table class="table table-striped table-inverse">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nit</th>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Ocupación</th>
+                    <th>Foto</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                    include("conectar.php");
+                    $query="select * from cliente";
+                    $cn=mysqli_connect($host,$user,$pw) or die ("Error Conectar servidor");                    
+                    mysqli_select_db($cn,$db) or die ("Error en DB");
+                    $result=mysqli_query($cn,$query);
+                    if($result){
+                      $c=1;
+                      while($fila=mysqli_fetch_assoc($result)){
+                        echo "<tr>";
+                        echo "<td style='vertical-align:middle'>$c</td>";  
+                        echo "<td style='vertical-align:middle'>".$fila['nit']."</td>";  
+                        echo "<td style='vertical-align:middle'>".$fila['nombre']." ".$fila['apellido']."</td>";  
+                        echo "<td style='vertical-align:middle'>".$fila['telefono']."</td>";  
+                        echo "<td style='vertical-align:middle'>".$fila['ocupacion']."</td>"; 
+                        if($fila['foto']=="") {
+                          echo "<td><img src='Fotos/sinFoto.png' width='100'></td>";  
+                        }else{
+                          echo "<td><img src='Fotos/".$fila['foto']."' width='100'></td>";  
+                        }                        
+                        echo "</tr>";  
+                        $c++;
+                      }
+                    }
+                  ?>
+                </tbody>
+              </table>                                   
+          </div>
 	    </center>
       </div>
     </div>
